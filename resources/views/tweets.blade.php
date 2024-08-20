@@ -10,9 +10,7 @@
 </head>
 
 <body>
-    <div class="container">
-        {{$slot}}
-    </div>
+    <livewire:show-tweets />
 
     @livewireScripts
 </body>

@@ -1,7 +1,5 @@
-version: "3"
-
+version: "3.8"
 services:
-    # image project
     app:
         build:
             context: .
@@ -14,8 +12,6 @@ services:
             - redis
         networks:
             - laravel
-
-    # nginx
     nginx:
         image: nginx:alpine
         restart: unless-stopped
@@ -26,8 +22,6 @@ services:
             - ./docker/nginx/:/etc/nginx/conf.d/
         networks:
             - laravel
-
-    # db mysql
     db:
         image: mysql:8.0
         platform: linux/x86_64
@@ -43,8 +37,6 @@ services:
             - "3300:3306"
         networks:
             - laravel
-
-    # PHPMyAdmin
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         platform: linux/x86_64
@@ -57,13 +49,10 @@ services:
             MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root}
         networks:
             - laravel
-
-    # redis
     redis:
         image: redis:latest
         networks:
             - laravel
-
 networks:
     laravel:
         driver: bridge
