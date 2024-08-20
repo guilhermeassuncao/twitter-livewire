@@ -20,6 +20,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_photo_path',
     ];
 
     /**
@@ -45,11 +46,18 @@ class User extends Authenticatable
         ];
     }
 
-    public function tweets(){
+    public function tweets()
+    {
         return $this->hasMany(Tweet::class);
     }
 
-    public function likes(){
+    public function likes()
+    {
         return $this->hasMany(Like::class);
+    }
+
+    public function getPhotoAttribute()
+    {
+        return $this->profile_photo_path;
     }
 }

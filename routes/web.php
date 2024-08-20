@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::view('/', 'tweets')->middleware('auth');
-Route::view('/upload','upload')->middleware('auth');
+Route::view('/', 'tweets')->middleware('auth')->name('tweets');
+Route::view('/upload','upload')->middleware('auth')->name('upload');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
