@@ -15,7 +15,7 @@
     <hr>
 
     @foreach ($tweets as $tweet)
-        <div>
+        <div class="flex">
             @if ($tweet->user->photo)
                 <img src="{{url("storage/{$tweet->user->photo}")}}" alt="{{$tweet->user->name}}">
             @else

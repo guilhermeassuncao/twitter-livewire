@@ -7,6 +7,7 @@
     <title>Twitter - Livewire</title>
 
     @livewireStyles
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>
